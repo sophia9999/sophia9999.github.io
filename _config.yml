@@ -116,17 +116,17 @@ comments:
   #   shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   # utterances:
-  #   repo: "sophia9999/sophia9999.github.io" # <gh-username>/<repo>
-  #   issue_term: "url" # < url | pathname | title | ...>
+  #   repo: # <gh-username>/<repo>
+  #   issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
     repo: "sophia9999/sophia9999.github.io" # <gh-username>/<repo>
     repo_id: "R_kgDOODTWcQ"
     category: "General"
     category_id: "DIC_kwDOODTWcc4CnlHo"
-    mapping: "pathname" # optional, default to 'pathname'
-    strict: "0" # optional, default to '0'
-    input_position: "top" # optional, default to 'bottom'
+    mapping: # optional, default to 'pathname'
+    strict: # optional, default to '0'
+    input_position:  # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
     reactions_enabled: # optional, default to the value of `1`
 
