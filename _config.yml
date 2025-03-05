@@ -14,9 +14,9 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Hong Inhye # the main title
+title: Step by step. # the main title
 
-tagline: Step by step.  # it will display as the subtitle
+tagline: Believe in myself # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Inhye's writing.
@@ -99,7 +99,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: 
+avatar: /assets/img/avatar.jpg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
@@ -124,10 +124,10 @@ comments:
     repo_id: "R_kgDOODTWcQ"
     category: "General"
     category_id: "DIC_kwDOODTWcc4CnlHo"
-    mapping: "pathname"  # optional, default to 'pathname'
+    mapping: "pathname" # optional, default to 'pathname'
     strict: "0" # optional, default to '0'
     input_position: "top" # optional, default to 'bottom'
-    lang: "ko" # optional, default to the value of `site.lang`
+    lang: # optional, default to the value of `site.lang`
     reactions_enabled: # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
