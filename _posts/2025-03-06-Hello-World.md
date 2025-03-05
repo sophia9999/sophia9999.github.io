@@ -2,8 +2,8 @@
 layout: post
 title: Hello, World!
 date: 2025-03-06 12:00:00 +0900
-categories: Tech
-tags: github.io, 블로그세팅
+categories: [Tech]
+tags: [github.io, setting]
 description: github.io 나만의 블로그 세팅하기
 ---
 
