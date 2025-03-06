@@ -1,0 +1,16 @@
+---
+---
+
+@use 'main
+{%- if jekyll.environment == ' production ' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+#sidebar {
+  background-image: url(/assets/img/landscape.jpg);
+  background-size: cover; /* 요소에 이미지를 꽉 채우기 */
+  background-position: center; /* 이미지의 중심을 기준으로 배치 */
+  background-repeat: no-repeat; /* 이미지 반복을 방지 */
+}
