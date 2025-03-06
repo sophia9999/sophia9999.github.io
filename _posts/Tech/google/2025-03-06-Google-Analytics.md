@@ -10,7 +10,7 @@ pin: true
 > Google Analytics에 대해 알아본다. 설정을 진행해본다.
 {: .prompt-info }
 
-### 구글 애널리틱스 Google Analytics 는 무엇인가 
+### 구글 애널리틱스 Google Analytics  
 <https://developers.google.com/analytics?hl=ko>
 
 간단하게 말하자면 **웹사이트나 모바일 앱의 방문자 데이터를 수집하고 분석할 수 있는 도구**입니다. 
