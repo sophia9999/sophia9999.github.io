@@ -3,7 +3,7 @@ title: Google Analytics, 내 블로그에 적용해보기
 date: 2025-03-06 14:00:00 +0900
 categories: [Tech, Google]
 tags: [구글,애널리틱스,google,google analytics]
-description: [구글 애널리틱스 적용해보기 applying google analytics to your app]     
+description: 👩‍💻 구글 애널리틱스 적용해보기 applying google analytics to your app
 pin: true
 ---
 
