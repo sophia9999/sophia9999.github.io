@@ -4,6 +4,7 @@ date: 2025-03-06 00:00:00 +0900
 categories: [Tech]
 tags: [github.io, setting]
 description: github.io 나만의 블로그 세팅하기
+pin: true
 ---
 
 # github.io 나의 블로그 만들기
