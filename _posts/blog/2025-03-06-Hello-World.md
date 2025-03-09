@@ -2,7 +2,7 @@
 title: Hello, World!
 date: 2025-03-06 00:00:00 +0900
 categories: [Blog]
-tags: [github.io, setting, 블로그만들기]
+tags: [github.io, github pages, 블로그만들기]
 description: 📒 github.io 나만의 블로그 세팅하기
 pin: true
 ---
