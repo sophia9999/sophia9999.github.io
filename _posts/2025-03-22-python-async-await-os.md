@@ -3,7 +3,7 @@ title: 운영체제 관점에서 이해하는 Python의 async/await
 date: 2025-03-22 20:00:00 +0900
 categories: [tech]
 tags: [python, async, coroutine, os, 이벤트루프, 협력적스케줄링, 개발개념정리]
-description: 🛠 운영체제 관점에서 async/await가 진짜 CPU에 뭘 하는지 알은 나의 꼬리에 꼬리를 무는 질문
+description: 🛠 운영체제 관점에서 async/await가 진짜 CPU에 뭘 하는지 알고싶은 나의 꼬리에 꼬리를 무는 질문
 mermaid: true
 pin: true
 ---
@@ -48,10 +48,14 @@ GIL 때문이라는 말은 많이 들었지만,
 ---
 
 > 🤓 참고로  
-> 글에 나오는 코드나 도식은 모두 **CPU 1개 환경 기준**으로 확인한 내용입니다.  
+> 글에 나오는 코드나 도식은 비교를 위해 넣은 이미지를 제외하고는 모두 **CPU 1개 환경 기준**으로 확인한 내용입니다.
 > 가능한 실제 출력 로그와 함께 정리했어요!
 ![cpu_info](/assets/img/posts/250322.cpuInfo.jpg)
-
+> multi core와 비교하기 위해서는 local 컴퓨터를 사용했습니다. 
+![local_cpuinfo](/assets/img/posts/250322.localCpu.png)\
+wsl에서 CPU가 8개라고 보이지만
+물리코어는 4개입니다. 
+![local_physical_cpuinfo](/assets/img/posts/250322.physicalCpu.png)
 ---
 
 ## 1. Python 프로세스 안에서 async는 어디서 돌아가는가
@@ -297,7 +301,7 @@ Python에서 CPU 바운드 작업을 `multiprocessing`으로 처리했을 때,
 
 | 항목             | Cloud 환경                | Local PC 환경           |
 |------------------|---------------------------|-------------------------|
-| CPU 코어 수       | 1개 (싱글 코어)            | 8 (단, 논리코어이고  물리코어는 4개)         |
+| CPU 코어 수       | 1개 (논리코어 2)            | 4 (논리코어 8)         |
 | OS               | Ubuntu 24.04.1 LTS        | Ubuntu 24.04.2 LTS      |
 | Python 버전       | 3.12.3                    | 3.12.3                  |
 
@@ -332,12 +336,6 @@ if __name__ == "__main__":
 ```
 ### 🖥 실행 결과 (CPU 1개 환경)
 ![cpu_1](/assets/img/posts/250322.singleCpu.png)
-
-
-![local_cpuinfo](/assets/img/posts/250322.localCpu.png)\
-wsl에서 CPU가 8개라고 보이지만
-물리코어는 4개입니다. 
-![local_physical_cpuinfo](/assets/img/posts/250322.physicalCpu.png)
 
 ### 🖥 실행 결과 (CPU 4개 환경)
 ![cpu_multiple](/assets/img/posts/250322.multiCpu.png)
