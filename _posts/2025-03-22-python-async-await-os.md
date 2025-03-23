@@ -49,17 +49,12 @@ GIL 때문이라는 말은 많이 들었지만,
 
 > 🤓 참고로  
 > 글에 나오는 코드나 도식은 비교를 위해 넣은 이미지를 제외하고는 모두 **CPU 1개 환경 기준**으로 확인한 내용입니다.
-> 가능한 실제 출력 로그와 함께 정리했어요!
-![cpu_info](/assets/img/posts/250322.cpuInfo.jpg)
-> multi core와 비교하기 위해서는 local 컴퓨터를 사용했습니다. 
-![local_cpuinfo](/assets/img/posts/250322.localCpu.png)\
-wsl에서 CPU가 8개라고 보이지만
-물리코어는 4개입니다. 
-![local_physical_cpuinfo](/assets/img/posts/250322.physicalCpu.png)
+> 가능한 실제 출력 로그와 함께 정리했어요!\
+> Cloud : 물리코어 1, 논리코어 2\
+>![cloud_cpu_info](/assets/img/posts/250322.cloudCpu.png)
 ---
 
 ## 1. Python 프로세스 안에서 async는 어디서 돌아가는가
-
 운영체제 입장에서 보면,  
 우리가 만든 Python 프로그램은 그저 **하나의 프로세스**일 뿐입니다.  
 그 안에서 어떤 코드를 실행하든, 어떤 모듈을 쓰든  
@@ -299,11 +294,23 @@ Python에서 CPU 바운드 작업을 `multiprocessing`으로 처리했을 때,
 
 ### 💻 실험 환경
 
+> Local : 물리코어 4, 논리코어 8\
+>![local_cpuinfo](/assets/img/posts/250322.localCpu.png)\
+
+
 | 항목             | Cloud 환경                | Local PC 환경           |
 |------------------|---------------------------|-------------------------|
-| CPU 코어 수       | 1개 (논리코어 2)            | 4 (논리코어 8)         |
+| CPU 코어 수       | 물리코어 1,논리코어 2      | 물리코어 4, 논리코어 8   |
 | OS               | Ubuntu 24.04.1 LTS        | Ubuntu 24.04.2 LTS      |
-| Python 버전       | 3.12.3                    | 3.12.3                  |
+| Python 버전       | 3.12.3                    | 3.12.3         |
+
+테스트에서는 아래와 같은 조건으로 고정하여 실험했습니다:
+
+| 항목           | 값                |
+|----------------|-------------------|
+| 프로세스 수     | 2개 고정           |
+| 각 프로세스 작업 | 1억 루프 반복       |
+| 비교 변수       | CPU 코어 수 (1 vs 4) |
 
 ### 🧾 테스트 코드
 ```python
@@ -322,8 +329,10 @@ if __name__ == "__main__":
     start = time.time()
 
     processes = []
-    # 프로세스를 CPU 코어 수만큼 돌려 계산하는 작업
-    for _ in range(multiprocessing.cpu_count()):
+    # 프로세스 수를 고정하여, 코어 수에 따른 실행 시간 차이를 관찰
+    process_count = 2
+    print(f"process_count : {process_count}")
+    for _ in range(process_count):
         p = multiprocessing.Process(target=cpu_bound_task, args=(1,))
         processes.append(p)
         p.start()
@@ -332,13 +341,22 @@ if __name__ == "__main__":
         p.join()
 
     print(f"end at {time.strftime('%X')} 소요 시간: {time.time() - start:.2f}초")
-
 ```
-### 🖥 실행 결과 (CPU 1개 환경)
-![cpu_1](/assets/img/posts/250322.singleCpu.png)
+### 🖥 실행 결과 
+![multiCoreTest](/assets/img/posts/250322.multiCoreTest.png)\
+![singleCoreTest](/assets/img/posts/250322.singleCoreTest.png)\
 
-### 🖥 실행 결과 (CPU 4개 환경)
-![cpu_multiple](/assets/img/posts/250322.multiCpu.png)
+멀티코어 환경에서는 평균 약 **5.24초**,  
+싱글코어 환경에서는 평균 약 **35.85초**가 소요되었습니다.
+
+| 환경 | 평균 소요 시간 |
+|------|----------------|
+| 멀티코어 (논리 8개) | 약 5.24초 |
+| 싱글코어 (논리 2개) | 약 35.85초 |
+
+> 동일한 작업(1억 루프 × 2개 프로세스)을 실행했음에도 불구하고,  
+> **멀티코어 환경에서는 병렬로 처리되면서 실행 시간이 크게 단축**된 것을 확인할 수 있습니다.
+
 
 ## ✍️ 마무리하며
 
