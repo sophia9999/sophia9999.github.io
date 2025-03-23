@@ -385,9 +385,11 @@ if __name__ == "__main__":
 ```
 ### 🖥 실행 결과 
 - 멀티코어 환경
+
 ![multiCoreTest](/assets/img/posts/250322.multiCoreTest.png)\
 
 - 싱글코어 환경
+
 ![singleCoreTest](/assets/img/posts/250322.singleCoreTest.png)\
 
 ---
