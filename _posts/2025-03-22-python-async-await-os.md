@@ -1,7 +1,7 @@
 ---
 title: 운영체제 관점에서 이해하는 Python의 async/await
 date: 2025-03-22 20:00:00 +0900
-categories: [tech]
+categories: [Tech]
 tags: [python, async, coroutine, os, 이벤트루프, 협력적스케줄링, 개발개념정리]
 description: 🛠 운영체제 관점에서 async/await가 진짜 CPU에 뭘 하는지 알고싶은 나의 꼬리에 꼬리를 무는 질문
 mermaid: true

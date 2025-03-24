@@ -33,7 +33,6 @@ and have since built and refactored structured systems using FastAPI.
 Rather than just implementing features,  
 I’m especially interested in designing systems that are stable and maintainable in real-world environments.
 
-I’ve written technical blog posts that explore Python’s async/await through the lens of operating system-level scheduling.  
 I care about organizing what I learn, sharing it clearly, and growing alongside others.
 
 My career so far hasn’t been flashy,  
