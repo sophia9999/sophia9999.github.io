@@ -6,3 +6,5 @@ tags: [tag] # TAG names should always be lowercase
 description: description...
 # pin: true # make a pin
 ---
+> 
+{: .prompt-info }
