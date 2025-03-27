@@ -1,5 +1,5 @@
 ---
-title: Basic Auth fallback은 왜 위험한가 – Wireshark로 본 인증 정보 노출
+title: Fallback으로 Basic Auth가 선택되면 – 보안은 안전할까?
 date: 2025-03-27 21:00:00 +0900
 categories: [Tech, Security]
 tags: [보안, 인증, tls, 개발자성장, 실무기록]
