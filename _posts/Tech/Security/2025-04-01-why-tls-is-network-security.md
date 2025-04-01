@@ -3,7 +3,7 @@ title: TLS는 왜 네트워크 보안이라고 불리는가?
 date: 2025-04-01 20:00:00 +0900
 categories: [Tech, Security]
 tags: [보안, 개발개념정리, tls] 
-description: 🔐애플리케이션 단에서 암호화가 이루어지는 TLS, 왜 네트워크 보안이라고 불리는지 알아봅시다.
+description: 🔐애플리케이션 단과 전송 계층 사이에서 암호화가 이루어지는 TLS, 왜 네트워크 보안이라고 불리는지 알아봅시다.
 mermaid: true
 # pin: true # make a pin
 ---
