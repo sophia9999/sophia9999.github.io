@@ -131,7 +131,7 @@ _기억을 바탕으로 재구성한 코드입니다_
 listeners: {
     afterrender: function () {
         const store = this.lookupReference('myCombo').getStore();
-            store.loadData([
+        store.loadData([
             { value: '', label: '선택하세요' },
             ...apiResponse
         ]);
