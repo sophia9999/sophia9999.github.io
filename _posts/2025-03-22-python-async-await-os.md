@@ -196,12 +196,13 @@ async는 I/O 바운드 작업에 최적화된 구조입니다.
 ---
 
 아래 예제는 CPU를 계속 점유하는 작업 안에 일정 조건마다 `await asyncio.sleep(0)`을 넣어 **다른 코루틴에게 실행 기회를 넘겨주는 구조**입니다.
+> ***25년 4월 13일 좀 더 핵심 전달을 위해 delay 변수 제거로 코드 반영***
 
 ```python
 import asyncio
 import time
 
-async def cpu_heavy(name, delay):
+async def cpu_heavy(name):
     print(f"{name}: start at {time.strftime('%X')}")
     for i in range(10**8):
         if i % 2_000_000 == 0 :
@@ -209,15 +210,15 @@ async def cpu_heavy(name, delay):
             await asyncio.sleep(0)
     print(f"{name}: end at {time.strftime('%X')}")
 
-async def io_task(name, delay):
+async def io_task(name):
     print(f"{name} started at {time.strftime('%X')}")
-    await asyncio.sleep(delay)
+    await asyncio.sleep(1)
     print(f"{name} finished at {time.strftime('%X')}")
 
 async def main():
     await asyncio.gather(
-        cpu_heavy("cpu_heavy_task", 1),
-        io_task("io_task", 1)
+        cpu_heavy("cpu_heavy_task"),
+        io_task("io_task")
     )
 
 asyncio.run(main())
@@ -240,26 +241,27 @@ asyncio.run(main())
 ---
 
 ### 흐름 양보 없이 순수 CPU 작업만 수행하는 경우
+> ***25년 4월 2일 좀 더 핵심 전달을 위해 delay 변수 제거로 코드 반영***
 
 ```python
 import asyncio
 import time
 
-async def cpu_heavy(name, delay):
+async def cpu_heavy(name):
     print(f"{name}: start at {time.strftime('%X')}")
     for i in range(10**8):
         pass
     print(f"{name}: end at {time.strftime('%X')}")
 
-async def io_task(name, delay):
+async def io_task(name):
     print(f"{name} started at {time.strftime('%X')}")
-    await asyncio.sleep(delay)
+    await asyncio.sleep(1)
     print(f"{name} finished at {time.strftime('%X')}")
 
 async def main():
     await asyncio.gather(
-        cpu_heavy("cpu_heavy_task", 1),
-        io_task("io_task", 1)
+        cpu_heavy("cpu_heavy_task"),
+        io_task("io_task")
     )
 
 asyncio.run(main())
