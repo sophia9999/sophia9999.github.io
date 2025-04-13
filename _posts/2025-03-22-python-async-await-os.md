@@ -224,7 +224,7 @@ async def main():
 asyncio.run(main())
 ```
 ### 🖥 실행 결과 (CPU 1개 환경)
-![cpu_bound_yield](/assets/img/posts/250322.cpuBoundYield.png)
+![cpu_bound_yield](/assets/img/posts/250413.cpuHeavyYieldTask.png)
 
 여기서 중요한 포인트 `await asyncio.sleep(0)`은 **"다른 코루틴이 있다면 실행 기회를 양보하겠다"**는 뜻입니다.
 
@@ -268,7 +268,7 @@ asyncio.run(main())
 ```
 
 ### 🖥 실행 결과 (CPU 1개 환경)
-![cpu_bound_task](/assets/img/posts/250322.cpuBoundTask.png)\
+![cpu_bound_task](/assets/img/posts/250413.cpuHeavyTask.png)\
 이 결과를 보면,
 오히려 `await`로 흐름을 나눈 첫 번째 예제보다
 총 소요 시간이 짧았다는 점을 확인할 수 있습니다.
