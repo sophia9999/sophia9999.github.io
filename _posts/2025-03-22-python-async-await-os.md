@@ -22,7 +22,9 @@ Python의 `async/await`를 처음 접했을 때, “비동기 처리를 위한 �
 > 그래서 `async`도 CPU 바운드 작업에선 별 효과가 없는 거겠지."
 
 *※ GIL(Global Interpreter Lock)은 Python의 멀티스레딩에서 중요한 개념이지만,  
-이 글에서는 async/await와 OS의 흐름 관계에 집중하기 위해 별도로 다루지 않습니다.*
+이 글에서는 async/await와 OS의 흐름 관계에 집중하기 위해 별도로 다루지 않습니다.  
+본 글은 Python 3.12 기준으로 작성되었으며,  
+향후 GIL 제거(nogil)와 관련된 구조 변화는 포함하지 않았습니다.*
 
 ---
 
