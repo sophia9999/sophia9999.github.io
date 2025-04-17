@@ -2,7 +2,7 @@
 title: VSCode에서 발생한 PowerShell탐지 이슈
 date: 2025-04-17 20:00:00 +0900
 categories: [Tech, Security]
-tags: [보안] # TAG names should always be lowercase
+tags: [보안, powershell, vscode] # TAG names should always be lowercase
 description: 개발 도구도 보안 탐지 대상이 될 수 있는 이유를 알아보고 구조 분석해 보았습니다.
 mermaid: true
 # pin: true # make a pin
@@ -58,18 +58,18 @@ VSCode는 PowerShell 등의 **터미널에서 향상된 UX를 제공하기 위�
 function global:Prompt {
     $FakeCode = [int]!$global:?
     # NOTE: We disable strict mode for the scope of this function because it unhelpfully throws an
-	# error when $LastHistoryEntry is null, and is not otherwise useful.
-	Set-StrictMode -Off
+    # error when $LastHistoryEntry is null, and is not otherwise useful.
+    Set-StrictMode -Off
     ...
     # Prompt started
     # OSC 633 ; A ST
-	$Result += "$([char]0x1b)]633;A`a"
-	# Current working directory
-	# OSC 633 ; <Property>=<Value> ST
+    $Result += "$([char]0x1b)]633;A`a"
+    # Current working directory
+    # OSC 633 ; <Property>=<Value> ST
     ...
     # Run the original prompt
-	$OriginalPrompt += $Global:__VSCodeOriginalPrompt.Invoke()
-	$Result += $OriginalPrompt
+    $OriginalPrompt += $Global:__VSCodeOriginalPrompt.Invoke()
+    $Result += $OriginalPrompt
     ...
 }
 ```
@@ -105,7 +105,9 @@ _정확한 문구는 기억나지 않지만, 해당 메시지가 그와 관련�
 보안 솔루션은 그것을 **의심스러운 행위**로 간주할 수 있다.
 
 보안은 코드의 내용뿐 아니라 **그 행위의 시점과 맥락**을 본다.  
-이 사건은 그런 **행위 기반 이상 탐지(anomaly detection) 시스템의 민감함**,  
+해당 스크립트에 대한 추가 검토가 이루어진 뒤, 이슈가 종료된 것으로 보였다. 
+
+이 사건은 단순한 시그니처 기반 탐지가 아니라, 이벤트 수집 시스템(SIEM 등)을 통해 발생한 것으로 추정되며,  
 그리고 그와 충돌할 수 있는 **개발자 경험의 자동화 구조**를 모두 경험할 수 있는 계기였다.  
 
 ---
@@ -116,5 +118,5 @@ _정확한 문구는 기억나지 않지만, 해당 메시지가 그와 관련�
 - **공식 문서와 GitHub 등에서 근거 확보** 후, 정리된 형태로 설명 준비
 - 개발 도구 내부에서 실행되는 스크립트도 항상 잠재적인 보안 탐지 대상임을 인지할 것
 
-> 이 글은 개인 개발 환경에서의 경험을 기반으로 작성된 기술적 분석입니다. 
+> 이 글은 업무 중 발생한 실제 사례를 개인적인 관점에서 정리한 기술적 분석입니다.
 
