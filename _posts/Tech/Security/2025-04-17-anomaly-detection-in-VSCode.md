@@ -40,8 +40,13 @@ mermaid: true
 검색을 통해 공식 GitHub 저장소에서 동일한 파일을 발견했고, 이는 VSCode의 터미널 관련 기능에 사용되는 내부 스크립트였다.  
 [🔗Microsoft 공식 Github Link](https://github.com/microsoft/vscode/blob/main/src/vs/workbench/contrib/terminal/common/scripts/shellIntegration.ps1)
 
+### 3. 공식 소스와의 형상 비교
 
-### 3. 공식 문서 확인
+탐지된 로컬 파일과 공식 GitHub 저장소의 내용을 **직접 diff 비교**해보았고,  
+주석 위치 등의 경미한 차이를 제외하면 **완전히 동일한 구조임을 확인**하였다.  
+이 과정을 통해 외부 조작 또는 변조 가능성은 없음을 스스로 판단할 수 있었다.  
+
+### 4. 공식 문서 확인
 터미널 셸 통합 관련 공식 문서를 보면,  
 [🔗Terminal Shell Integration](https://code.visualstudio.com/docs/terminal/shell-integration)  
 VSCode는 PowerShell 등의 **터미널에서 향상된 UX를 제공하기 위해 특정 스크립트를 자동으로 삽입하고 실행**한다.  
