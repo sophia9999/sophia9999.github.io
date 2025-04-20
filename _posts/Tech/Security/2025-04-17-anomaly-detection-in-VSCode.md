@@ -83,7 +83,7 @@ function global:Prompt {
 **프롬프트를 조작하고 있는 것**은 확실해 보였다.  
 공식문서를 확인하면 VSCode의 terminal에 decoration을 추가하고, **터미널 상단에 명령어를 고정시키는 등(Sticky scroll)**의 동작을 수행한다고 한다.   
 
-[VSCode Terminal](/assets/img/posts/250420.vscodeterminal.jpg)  
+![VSCode Terminal](/assets/img/posts/250420.vscodeterminal.jpg)  
 보안 탐지 관점에서 보면,  
 PowerShell이 예기치 않게 종료되는 과정에서 해당 스크립트가 같이 실행되고 있었고,  
 사용자에게 명확히 인식되지 않는 구조인 만큼,  
