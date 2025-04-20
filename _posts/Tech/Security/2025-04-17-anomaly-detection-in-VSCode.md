@@ -1,5 +1,5 @@
 ---
-title: VSCode에서 발생한 PowerShell탐지 이슈
+title: VSCode PowerShell에서 발생한 이상 탐지 이슈
 date: 2025-04-17 20:00:00 +0900
 categories: [Tech, Security]
 tags: [보안, powershell, vscode] # TAG names should always be lowercase
@@ -7,7 +7,7 @@ description: 개발 도구도 보안 탐지 대상이 될 수 있는 이유를 �
 mermaid: true
 # pin: true # make a pin
 ---
-> 이상탐지 솔루션에서 PowerShell 탐지? 
+> 이상탐지 솔루션에서 PowerShell 탐지?  
 > 개발 도구도 보안 탐지 대상이 될 수 있는 이유를 알아보고 구조 분석해 보았습니다.
 {: .prompt-info }
 
