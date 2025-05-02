@@ -1,6 +1,6 @@
 ---
 title: 나의 Oracle Cloud Infrastructure 서버 구축기록 - 2
-date: 2025-05-02 20:00:00 +0900
+date: 2025-05-02 22:00:00 +0900
 categories: [Tech, Server]
 tags: [인프라, 개발자성장, 개인서버, oci, cloudflare, zero trust]
 description: Oracle Cloud 서버 방화벽 설정 - 클라우드와 OS
