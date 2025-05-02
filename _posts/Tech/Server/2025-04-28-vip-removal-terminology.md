@@ -1,7 +1,7 @@
 ---
 title: 서버가 VIP에서 제외된다는 말, 맞는 표현일까?
 date: 2025-04-28 23:00:00 +0900
-categories: [Tech]
+categories: [Tech, Server]
 tags: [인프라, 실무기록, 개발개념정리]
 description: 웹개발자가 VIP(Virtual IP)용어를 마주쳤을 때, 서비스 아키텍처와 함께 생각해보았습니다.
 mermaid: true
