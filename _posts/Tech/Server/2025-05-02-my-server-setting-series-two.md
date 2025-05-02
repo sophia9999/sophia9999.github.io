@@ -112,9 +112,19 @@ server {
 3. add_header HSTS를 통해 이 사이트는 HTTPS로만 접속하라는 보안을 강제하였다. 
 
 > Prerequisite : Gunicorn은 127.0.0.1:8000으로 띄워지도록 systemd에 등록되어있어야한다.  
+> certbot을 통해 Let's Encrypt에서 인증서를 받으면, Nginx 설정에 TLS 관련 `ssl_certificate`, `ssl_certificate_key` 경로가 자동으로 추가된다.
 
 현재는 단일 서버 환경이기 때문에 Nginx와 FastAPI 간 통신은 HTTP로도 충분하다.  
 그러나 분산 구조에서 Nginx가 프록시 서버 역할만 수행하고,  
 실제 WAS가 별도의 서버에 위치한다면,  
 Zero Trust 모델에서는 내부 통신도 신뢰하지 않기 때문에,  
 **HTTPS (또는 mTLS)로 암호화하는 것이 권장된다.**
+
+---
+
+다음 글에서는 **Cloudflare Access를 통해 OTP 기반 이메일 인증 게이트를 구성한 과정**을 정리할 예정이다.  
+초기에는 Full(strict) 모드를 설정하지 않아 무한 리디렉션 문제가 발생했고,  
+`www.inye.cloud`에서는 그냥 접속이 되었지만, `inye.cloud`에서는 인증을 요구하는 차이도 있었다.
+
+이런 설정 이슈들을 어떻게 해결했는지,  
+Cloudflare에서의 인증 정책을 실제로 어떻게 적용했는지를 중심으로 다음 편에서 이어가겠다.
