@@ -2,7 +2,7 @@
 title: 나의 Oracle Cloud Infrastructure 서버 구축기록 - 1
 date: 2025-05-02 20:00:00 +0900
 categories: [Tech, Server]
-tags: [인프라, 개발자성장, 개인서버, ocr, cloudflare, zero trust]
+tags: [인프라, 개발자성장, 개인서버, oci, cloudflare, zero trust]
 description: Oracle Cloud를 이용해 도메인을 연결하고, HTTPS부터 Cloudflare 인증 게이트까지 직접 구성한 과정 정리
 mermaid: true
 pin: true # make a pin
