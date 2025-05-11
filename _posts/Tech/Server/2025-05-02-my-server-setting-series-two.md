@@ -66,6 +66,10 @@ sudo iptables -I INPUT 5 -i ens3 -p tcp --dport 443 -m state --state NEW,ESTABLI
 sudo iptables -I INPUT 5 -i ens3 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
 # 나는 5번째 위치에 삽입하였지만, 룰은 위에서부터 순차로 동작하므로 주의
 
+# 참고로 iptables 세팅은 리부팅하면 사라지니 저장을 위해 해당 명령어를 쓴다. 
+sudo iptables-save > /etc/iptables/rules.v4
+# 복구 시에는 아래 명령어
+sudo iptables-restore /etc/iptables/rules.v4
 ```
 
 iptables 명령어를 통해 80, 443을 뚫어주고 시도해보면 연결이 될 것이다.
@@ -110,6 +114,7 @@ server {
 1. www.inye.cloud:443으로 들어온 요청은 http://127.0.0.1:8000 (FastAPI WAS)로 전달된다. 
 2. FastAPI는 외부에 직접 노출되지 않는 구조이다.  
 3. add_header HSTS를 통해 이 사이트는 HTTPS로만 접속하라는 보안을 강제하였다. 
+4. `include /etc/letsencrypt/options-ssl-nginx.conf` 파일 내부에서 `ssl_protocols TLSv1.3;`로 설정하여, TLS 1.3만 사용하도록 강제하고 있다. 이는 클라이언트와 서버 간의 암호화 통신을 **최신 버전의 보안 프로토콜로만 제한**하여, 보다 강력한 보안 수준을 확보하기 위함이다.
 
 > Prerequisite : Gunicorn은 127.0.0.1:8000으로 띄워지도록 systemd에 등록되어있어야한다.  
 > certbot을 통해 Let's Encrypt에서 인증서를 받으면, Nginx 설정에 TLS 관련 `ssl_certificate`, `ssl_certificate_key` 경로가 자동으로 추가된다.
