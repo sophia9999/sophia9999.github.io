@@ -84,7 +84,8 @@ server {
 }
 ```
 
-> 등록되지 않은 이메일을 입력해도, 인증게이트에서는 "등록되지 않은 이메일"임을  알려주지 않는다. (Cloudflare의 정책)
+> 등록되지 않은 이메일을 입력해도, 인증게이트에서는 "등록되지 않은 이메일"임을 알려주지 않는다. (Cloudflare의 정책)  
+![cloudflareOTPPolicy](/assets/img/posts/250512.cloudflareOtpPolicy.png)  
 
 ### 마무리하며
 

@@ -13,7 +13,7 @@ pin: true # make a pin
 
 사실 처음에는 별다른 생각이 없었습니다. 단순히 로그에 기록된 디버그 메시지 하나쯤으로 여겼습니다.
 로그에는 `Challenge for Negotiate authentication scheme not available`라는 메시지가 남아 있었습니다.
-`Challenge`라는 용어 자체는 알고 있었지만, 실제 인증 흐름 속에서 마주친 것은 이번이 처음이었습니다.\
+`Challenge`라는 용어 자체는 알고 있었지만, 실제 인증 흐름 속에서 마주친 것은 이번이 처음이었습니다.  
 
 *이 로그가 출력된 맥락은 이 글의 초점과 직접 관련이 없어 생략합니다.*
 
